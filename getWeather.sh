@@ -15,3 +15,7 @@ else
 fi
 
 TIME_TO_SLEEP=`cat config.ini`
+
+while true; do 
+	lwp-request "weather.yahooapis.com/forecastrss?w=834463&u=c" | grep -A1 "Current" | tail -n 1 | cut -d '<' -f1; 
+done;
